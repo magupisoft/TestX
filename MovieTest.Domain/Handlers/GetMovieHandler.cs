@@ -8,7 +8,7 @@ namespace MovieTest.Domain.Handlers
 {
     public class GetMovieHandler : IHandleApiRequestAsync<Guid, Movie>
     {
-        private IMoviesrepository repository;
+        private readonly IMoviesrepository repository;
 
         public GetMovieHandler(IMoviesrepository repository)
         {

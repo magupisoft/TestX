@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Http;
 
+using MovieTest.Domain;
+
 namespace MovieTest
 {
     public class Global : HttpApplication
@@ -13,7 +15,8 @@ namespace MovieTest
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            MapperConfiguration.Initialize();
         }
     }
 }
