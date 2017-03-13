@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Handlers\AddMovieHandler.cs" />
+    <Compile Include="Models\UpdateMovieRequest.cs" />
     <Compile Include="MapperConfiguration.cs" />
     <Compile Include="Models\AddMovieRequest.cs" />
     <Compile Include="Handlers\GetMovieHandler.cs" />

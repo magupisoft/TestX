@@ -6,7 +6,11 @@ using MovieTest.Data.Repositories;
 
 namespace MovieTest.Domain.Handlers
 {
-    public class GetMovieHandler : IHandleApiRequestAsync<Guid, Movie>
+    public interface IGetMovieHandler : IHandleApiRequestAsync<Guid, Movie>
+    {
+    }
+
+    public class GetMovieHandler : IGetMovieHandler
     {
         private readonly IMoviesrepository repository;
 

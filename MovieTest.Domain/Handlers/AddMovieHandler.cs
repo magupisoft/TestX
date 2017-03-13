@@ -9,7 +9,11 @@ using MovieTest.Domain.Models;
 
 namespace MovieTest.Domain.Handlers
 {
-    public class AddMovieHandler : IHandleApiRequestAsync<AddMovieRequest, bool>
+    public interface IAddMovieHandler : IHandleApiRequestAsync<AddMovieRequest, bool>
+    {
+    }
+
+    public class AddMovieHandler : IAddMovieHandler
     {
         private readonly IMoviesrepository repository;
 

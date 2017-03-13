@@ -1,16 +1,35 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using MovieTest.Data.Repositories;
 
 namespace MovieTest.Domain.Handlers
 {
-    public class RemoveMovieHandler 
+    public interface IRemoveMovieHandler : IHandleApiRequestAsync<Guid, bool>
     {
-        private IMoviesrepository repository;
+    }
+
+    public class RemoveMovieHandler : IRemoveMovieHandler
+    {
+        private readonly IMoviesrepository repository;
 
         public RemoveMovieHandler(IMoviesrepository repository)
         {
+            this.repository = repository;
+        }
 
+        public async Task<bool> GetResponseAsync(Guid request)
+        {
+            try
+            {
+                await this.repository.Delete(request);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return false;
         }
     }
 }
