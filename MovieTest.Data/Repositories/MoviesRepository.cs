@@ -2,75 +2,75 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 using MovieTest.Data.Model;
 
 namespace MovieTest.Data.Repositories
 {
-    public interface IMoviesrepository : IDisposable
+    public interface IMoviesrepository : IRepository<Movie>
     {
-        void Add(Movie movie);
+        Task Add(Movie movie);
 
-        void Update(Movie movie);
+        Task Update(Movie movie);
 
-        void Delete(Guid id);
+        Task Delete(Guid id);
 
-        Movie FindById(Guid id);
+        Task<Movie> GetByUnique(Guid id);
+        
+        Task<IEnumerable<Movie>> GetMovies();
 
-        IEnumerable<Movie> GetMovies();
-
-        void Save();
+        Task SaveAsync();
     }
 
     public class MoviesRepository : IMoviesrepository
     {
-        private MoviesDbContext _context;
+        private readonly MoviesDbContext context;
 
         public MoviesRepository(MoviesDbContext context)
         {
-            this._context = context;
+            this.context = context;
         }
 
-        public void Add(Movie movie)
+        public async Task Add(Movie movie)
         {
-            this._context.Movies.Add(movie);
+            this.context.Movies.Add(movie);
         }
 
-        public void Update(Movie movie)
+        public async Task Update(Movie movie)
         {
-            this._context.Entry(movie).State = EntityState.Modified;
+            this.context.Entry(movie).State = EntityState.Modified;
         }
 
-        public void Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            Movie movie = this.FindById(id);
-            this._context.Movies.Remove(movie);
+            var movie = await this.GetByUnique(id);
+            this.context.Movies.Remove(movie);
         }
 
-        public Movie FindById(Guid id)
+        public Task<Movie> GetByUnique(Guid id)
         {
-            return this._context.Movies.Find(id);
+            return this.context.Movies.FindAsync(id);
         }
 
-        public IEnumerable<Movie> GetMovies()
+        public async Task<IEnumerable<Movie>> GetMovies()
         {
-            return this._context.Movies.ToList();
+            return this.context.Movies.ToList();
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            this._context.SaveChanges();
+            await this.context.SaveChangesAsync();
         }
 
-        private bool disposed = false;
-
+        private bool disposed;
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)
             {
                 if (disposing)
                 {
-                    _context.Dispose();
+                    this.context.Dispose();
                 }
             }
             this.disposed = true;
@@ -78,7 +78,7 @@ namespace MovieTest.Data.Repositories
 
         public void Dispose()
         {
-            Dispose(true);
+            this.Dispose(true);
             GC.SuppressFinalize(this);
         }
     }

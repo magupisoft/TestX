@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 
 using MovieTest.Data.Model;
 
@@ -10,6 +9,7 @@ namespace MovieTest.Data
     {
         public override void InitializeDatabase(MoviesDbContext context)
         {
+            // If an existing connection exists when trying to re-create DB, it drops out
             context.Database.ExecuteSqlCommand(
                 TransactionalBehavior.DoNotEnsureTransaction,
                 string.Format(
