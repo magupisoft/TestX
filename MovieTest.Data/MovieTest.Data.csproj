@@ -49,8 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\MovieImages.cs" />
-    <Compile Include="Model\Movies.cs" />
+    <Compile Include="Model\Movie.cs" />
     <Compile Include="MoviesDbContext.cs" />
+    <Compile Include="MoviesDBInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
