@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 
 using MovieTest.Data.Model;
+using MovieTest.Data.Models;
 using MovieTest.Data.Repositories;
 
 namespace MovieTest.Domain.Handlers

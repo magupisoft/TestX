@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 
-using MovieTest.Data.Model;
+using MovieTest.Data.Models;
 using MovieTest.Data.Repositories;
-using MovieTest.Domain.Models;
+using MovieTest.Domain.DTO;
 
 namespace MovieTest.Domain.Handlers
 {

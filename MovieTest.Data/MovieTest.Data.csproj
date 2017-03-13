@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\MovieImages.cs" />
-    <Compile Include="Model\Movie.cs" />
+    <Compile Include="Models\MovieImages.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="MoviesDbContext.cs" />
     <Compile Include="MoviesDBInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

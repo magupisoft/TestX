@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 
-using MovieTest.Data.Model;
+using MovieTest.Data.Models;
 
 namespace MovieTest.Data
 {

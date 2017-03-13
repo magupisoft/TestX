@@ -1,11 +1,7 @@
-﻿using System;
-
-namespace MovieTest.Data.Model
+﻿namespace MovieTest.Domain.DTO
 {
-    public class Movie
+    public class AddMovieRequest
     {
-        public Guid Id { get; set; }
-
         public string Title { get; set; }
 
         public string Description { get; set; }

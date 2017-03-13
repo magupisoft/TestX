@@ -44,9 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Handlers\AddMovieHandler.cs" />
-    <Compile Include="Models\UpdateMovieRequest.cs" />
+    <Compile Include="DTO\UpdateMovieRequest.cs" />
     <Compile Include="MapperConfiguration.cs" />
-    <Compile Include="Models\AddMovieRequest.cs" />
+    <Compile Include="DTO\AddMovieRequest.cs" />
     <Compile Include="Handlers\GetMovieHandler.cs" />
     <Compile Include="Handlers\GetMovieListHandler.cs" />
     <Compile Include="Handlers\IHandlerApiRequest.cs" />
@@ -62,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Validators\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

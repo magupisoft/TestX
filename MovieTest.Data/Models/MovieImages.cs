@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MovieTest.Data.Model
+namespace MovieTest.Data.Models
 {
     // ToDo: To be implemented
     public class MovieImages

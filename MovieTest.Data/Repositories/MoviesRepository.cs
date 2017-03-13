@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
-using MovieTest.Data.Model;
+using MovieTest.Data.Models;
 
 namespace MovieTest.Data.Repositories
 {

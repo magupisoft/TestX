@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using AutoMapper.Configuration;
 
-using MovieTest.Data.Model;
-using MovieTest.Domain.Models;
+using MovieTest.Data.Models;
+using MovieTest.Domain.DTO;
 
 namespace MovieTest.Domain
 {
