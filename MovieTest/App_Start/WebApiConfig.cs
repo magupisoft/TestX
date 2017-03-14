@@ -2,8 +2,6 @@
 
 using FluentValidation.WebApi;
 
-using MovieTest.App_Start;
-using MovieTest.Domain.Validators;
 using MovieTest.Filters;
 
 using Newtonsoft.Json;
