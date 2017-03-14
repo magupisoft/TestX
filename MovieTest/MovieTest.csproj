@@ -131,6 +131,7 @@
     </Compile>
     <Compile Include="Installers\CommonInstaller.cs" />
     <Compile Include="Installers\ControllersInstaller.cs" />
+    <Compile Include="ApiControllers\MoviesController.cs" />
     <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

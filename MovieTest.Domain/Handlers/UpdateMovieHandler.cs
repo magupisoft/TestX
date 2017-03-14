@@ -32,9 +32,10 @@ namespace MovieTest.Domain.Handlers
             }
             catch (Exception ex)
             {
-                
-                throw ex;
+                // ToDo:Log Exception
             }
+
+            return false;
         }
     }
 }

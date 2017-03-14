@@ -21,7 +21,18 @@ namespace MovieTest.Domain.Handlers
 
         public async Task<Movie> GetResponseAsync(Guid request)
         {
-            return await this.repository.GetByUnique(request);
+            Movie movie = null;
+            try
+            {
+                movie = await this.repository.GetByUnique(request);
+            }
+            catch (Exception ex)
+            {
+                
+                // ToDo: Log Exception
+            }
+
+            return movie;
         }
     }
 }

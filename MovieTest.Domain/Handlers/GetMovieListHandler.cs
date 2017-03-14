@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using MovieTest.Data.Models;
@@ -21,7 +22,18 @@ namespace MovieTest.Domain.Handlers
 
         public async Task<IEnumerable<Movie>> GetResponseAsync()
         {
-            return await this.repository.GetMovies();
+            IEnumerable<Movie> movies = null;
+            try
+            {
+                movies = await this.repository.GetMovies();
+            }
+            catch (Exception ex)
+            {
+
+                // ToDo: Log Exception
+            }
+
+            return movies;
         }
     }
 }
