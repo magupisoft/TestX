@@ -1,5 +1,10 @@
-﻿namespace MovieTest.Domain.DTO
+﻿using FluentValidation.Attributes;
+
+using MovieTest.Domain.Validators;
+
+namespace MovieTest.Domain.DTO
 {
+    [Validator(typeof(AddMovieRequestValidator))] 
     public class AddMovieRequest
     {
         public string Title { get; set; }

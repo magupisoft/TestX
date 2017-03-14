@@ -1,7 +1,12 @@
 ﻿using System;
 
+using FluentValidation.Attributes;
+
+using MovieTest.Domain.Validators;
+
 namespace MovieTest.Domain.DTO
 {
+    [Validator(typeof(UpdateMovieRequestValidator))]
     public class UpdateMovieRequest
     {
         public Guid Id { get; set; }
