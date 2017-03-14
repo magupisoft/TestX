@@ -16,6 +16,8 @@ namespace MovieTest
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //AutoMapper Configuration
             MapperConfiguration.Initialize();
         }
     }

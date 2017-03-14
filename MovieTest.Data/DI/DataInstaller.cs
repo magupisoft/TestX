@@ -2,8 +2,6 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-using MovieTest.Data.Repositories;
-
 namespace MovieTest.Data.DI
 {
     public class DataInstaller : IWindsorInstaller

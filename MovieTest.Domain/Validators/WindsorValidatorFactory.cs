@@ -6,6 +6,7 @@ using FluentValidation;
 
 namespace MovieTest.Domain.Validators
 {
+    [Obsolete("Not used")]
     public class WindsorValidatorFactory : ValidatorFactoryBase
     {
         private readonly IWindsorContainer _container;

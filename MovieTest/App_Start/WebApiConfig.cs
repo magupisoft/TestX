@@ -2,6 +2,8 @@
 
 using FluentValidation.WebApi;
 
+using MovieTest.App_Start;
+using MovieTest.Domain.Validators;
 using MovieTest.Filters;
 
 using Newtonsoft.Json;
@@ -18,9 +20,11 @@ namespace MovieTest
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // Json Global Conventions
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             config.Formatters.JsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
 
+            // Model State Validation Filter
             config.Filters.Add(new ValidateModelAttribute());
 
             config.Routes.MapHttpRoute(
@@ -28,6 +32,7 @@ namespace MovieTest
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
 
+            // Configure Fluent Validation
             FluentValidationModelValidatorProvider.Configure(config);
         }
     }
