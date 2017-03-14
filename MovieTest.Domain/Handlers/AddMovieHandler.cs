@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 
-using MovieTest.Data.Model;
 using MovieTest.Data.Models;
 using MovieTest.Data.Repositories;
 using MovieTest.Domain.DTO;
