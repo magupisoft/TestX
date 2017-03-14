@@ -1,13 +1,16 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Http;
 
 using FluentValidation.WebApi;
 
-using MovieTest.Filters;
+using MovieTest.API.Filters;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace MovieTest
+namespace MovieTest.API
 {
     public static class WebApiConfig
     {
@@ -28,7 +31,8 @@ namespace MovieTest
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional });
+                defaults: new { id = RouteParameter.Optional }
+            );
 
             // Configure Fluent Validation
             FluentValidationModelValidatorProvider.Configure(config);

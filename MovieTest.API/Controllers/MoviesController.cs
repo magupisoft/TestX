@@ -5,7 +5,7 @@ using System.Web.Http;
 using MovieTest.Domain.DTO;
 using MovieTest.Domain.Handlers;
 
-namespace MovieTest.ApiControllers
+namespace MovieTest.API.Controllers
 {
     [RoutePrefix("api/movies")]
     public class MoviesController : ApiController

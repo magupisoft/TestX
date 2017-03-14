@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTest", "MovieTest\MovieTest.csproj", "{DC3074C0-F0C5-402C-9338-EA007B893692}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTest.Tests", "MovieTest.Tests\MovieTest.Tests.csproj", "{F50B701A-17D7-4F5D-BCD6-381F88D3EE4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTest.Data", "MovieTest.Data\MovieTest.Data.csproj", "{A46D6458-121F-4A53-860B-9D31D31B97F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTest.Domain", "MovieTest.Domain\MovieTest.Domain.csproj", "{A9FD4233-29F9-436C-A0D1-56CDF94BAEDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTest.API", "MovieTest.API\MovieTest.API.csproj", "{B0189D3D-6AD9-45C8-B308-F43226AB5320}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DC3074C0-F0C5-402C-9338-EA007B893692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC3074C0-F0C5-402C-9338-EA007B893692}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC3074C0-F0C5-402C-9338-EA007B893692}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC3074C0-F0C5-402C-9338-EA007B893692}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F50B701A-17D7-4F5D-BCD6-381F88D3EE4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F50B701A-17D7-4F5D-BCD6-381F88D3EE4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F50B701A-17D7-4F5D-BCD6-381F88D3EE4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{A9FD4233-29F9-436C-A0D1-56CDF94BAEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9FD4233-29F9-436C-A0D1-56CDF94BAEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9FD4233-29F9-436C-A0D1-56CDF94BAEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0189D3D-6AD9-45C8-B308-F43226AB5320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0189D3D-6AD9-45C8-B308-F43226AB5320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0189D3D-6AD9-45C8-B308-F43226AB5320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0189D3D-6AD9-45C8-B308-F43226AB5320}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
