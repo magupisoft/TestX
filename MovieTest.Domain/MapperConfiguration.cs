@@ -13,6 +13,7 @@ namespace MovieTest.Domain
             var cfg = new MapperConfigurationExpression();
             cfg.CreateMap<Movie, AddMovieRequest>();
             cfg.CreateMap<Movie, UpdateMovieRequest>();
+            cfg.CreateMap<Movie, MovieDetailResponse>();
             Mapper.Initialize(cfg);
         }
     }

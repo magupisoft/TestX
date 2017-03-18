@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DI\DomainInstaller.cs" />
+    <Compile Include="DTO\MovieDetailResponse.cs" />
     <Compile Include="Handlers\AddMovieHandler.cs" />
     <Compile Include="DTO\UpdateMovieRequest.cs" />
     <Compile Include="MapperConfiguration.cs" />
