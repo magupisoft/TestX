@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+
+using AutoMapper;
 
 using MovieTest.Data.Models;
 using MovieTest.Data.Repositories;
+using MovieTest.Domain.DTO;
 
 namespace MovieTest.Domain.Handlers
 {
-    public interface IGetMovieListHandler : IHandleApiRequestAsync<IEnumerable<Movie>>
+    public interface IGetMovieListHandler : IHandleApiRequestAsync<IEnumerable<MovieDetailResponse>>
     {
     }
 
@@ -20,7 +24,7 @@ namespace MovieTest.Domain.Handlers
             this.repository = repository;
         }
 
-        public async Task<IEnumerable<Movie>> GetResponseAsync()
+         public async Task<IEnumerable<MovieDetailResponse>> GetResponseAsync()
         {
             IEnumerable<Movie> movies = null;
             try
@@ -29,11 +33,11 @@ namespace MovieTest.Domain.Handlers
             }
             catch (Exception ex)
             {
-
                 // ToDo: Log Exception
             }
 
-            return movies;
+            var moviesDetails = Mapper.Map<IEnumerable<Movie>, IEnumerable<MovieDetailResponse>>(movies);
+            return moviesDetails;
         }
     }
 }
