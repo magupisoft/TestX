@@ -25,7 +25,7 @@ namespace MovieTest.Domain.Handlers
             try
             {
                 var movie = this.mapper.Map<Movie>(request);
-                await this.repository.Add(movie);
+                await this.repository.Update(movie);
                 await this.repository.SaveAsync();
                 return true;
             }
