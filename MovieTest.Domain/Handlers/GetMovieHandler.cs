@@ -3,21 +3,19 @@ using System.Threading.Tasks;
 
 using AutoMapper;
 
-using MovieTest.Data.Models;
-using MovieTest.Data.Repositories;
-using MovieTest.Domain.DTO;
+using MovieTest.Common.DTO;
+using MovieTest.Common.Interfaces.Handlers;
+using MovieTest.Common.Interfaces.Repositories;
+using MovieTest.Common.Models;
 
 namespace MovieTest.Domain.Handlers
 {
-    public interface IGetMovieHandler : IHandleApiRequestAsync<Guid, MovieDetailResponse>
-    {
-    }
-
-    public class GetMovieHandler : IGetMovieHandler
+    public class GetMovieHandler : BaseHandler, IGetMovieHandler
     {
         private readonly IMoviesrepository repository;
 
-        public GetMovieHandler(IMoviesrepository repository)
+        public GetMovieHandler(IMoviesrepository repository, IMapper mapper)
+            : base(mapper)
         {
             this.repository = repository;
         }
@@ -34,7 +32,7 @@ namespace MovieTest.Domain.Handlers
                 // ToDo: Log Exception
             }
 
-            var movieDetail = Mapper.Map<MovieDetailResponse>(movie);
+            var movieDetail = this.mapper.Map<MovieDetailResponse>(movie);
             return movieDetail;
         }
     }

@@ -1,19 +1,12 @@
 ﻿using System;
 
-using FluentValidation.Attributes;
-
-using MovieTest.Domain.Validators;
-
-namespace MovieTest.Domain.DTO
+namespace MovieTest.Common.DTO
 {
-    [Validator(typeof(UpdateMovieRequestValidator))]
-    public class UpdateMovieRequest
+    public class MovieDetailResponse
     {
         public Guid Id { get; set; }
 
         public string Title { get; set; }
-
-        public string Description { get; set; }
 
         public string Classification { get; set; }
 

@@ -115,12 +115,16 @@
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="DI\WebApiInstaller.cs" />
     <Compile Include="DI\WindsorCompositionRoot.cs" />
+    <Compile Include="Filters\ApiResourceValidationErrorWrapper.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Validators\AddMovieRequestValidator.cs" />
+    <Compile Include="Validators\UpdateMovieRequestValidator.cs" />
+    <Compile Include="Validators\WindsorValidatorFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -137,14 +141,17 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MovieTest.Data\MovieTest.Data.csproj">
-      <Project>{A46D6458-121F-4A53-860B-9D31D31B97F6}</Project>
-      <Name>MovieTest.Data</Name>
+    <ProjectReference Include="..\MovieTest.Common\MovieTest.Common.csproj">
+      <Project>{81fba67f-87f5-4376-9af7-6bc2c052d921}</Project>
+      <Name>MovieTest.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MovieTest.Domain\MovieTest.Domain.csproj">
-      <Project>{A9FD4233-29F9-436C-A0D1-56CDF94BAEDF}</Project>
+      <Project>{a9fd4233-29f9-436c-a0d1-56cdf94baedf}</Project>
       <Name>MovieTest.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -157,16 +164,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>19385</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:19385/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
           <servers defaultServer="">
             <server name="OwinHost" exePath="{solutiondir}\packages\OwinHost.3.0.1\tools\OwinHost.exe" cmdArgs="-u {url}" url="http://localhost:12345/" workingDir="{projectdir}" />
           </servers>

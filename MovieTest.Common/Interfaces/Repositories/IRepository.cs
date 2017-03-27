@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace MovieTest.Data.Repositories
+namespace MovieTest.Common.Interfaces.Repositories
 {
     public interface IRepository<T> : IDisposable
     {

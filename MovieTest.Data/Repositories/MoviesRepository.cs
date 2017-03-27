@@ -4,25 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
-using MovieTest.Data.Models;
+using MovieTest.Common.Interfaces.Repositories;
+using MovieTest.Common.Models;
+using MovieTest.Data.EF;
 
 namespace MovieTest.Data.Repositories
 {
-    public interface IMoviesrepository : IRepository<Movie>
-    {
-        Task Add(Movie movie);
-
-        Task Update(Movie movie);
-
-        Task Delete(Guid id);
-
-        Task<Movie> GetByUnique(Guid id);
-        
-        Task<IEnumerable<Movie>> GetMovies();
-
-        Task SaveAsync();
-    }
-
     public class MoviesRepository : IMoviesrepository
     {
         private readonly MoviesDbContext context;
@@ -48,9 +35,9 @@ namespace MovieTest.Data.Repositories
             this.context.Movies.Remove(movie);
         }
 
-        public Task<Movie> GetByUnique(Guid id)
+        public async Task<Movie> GetByUnique(Guid id)
         {
-            return this.context.Movies.FindAsync(id);
+            return await this.context.Movies.FindAsync(id);
         }
 
         public async Task<IEnumerable<Movie>> GetMovies()

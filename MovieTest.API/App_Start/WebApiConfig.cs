@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-
-using FluentValidation.WebApi;
+﻿using System.Web.Http;
 
 using MovieTest.API.Filters;
 
@@ -33,9 +28,6 @@ namespace MovieTest.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-            // Configure Fluent Validation
-            FluentValidationModelValidatorProvider.Configure(config);
         }
     }
 }

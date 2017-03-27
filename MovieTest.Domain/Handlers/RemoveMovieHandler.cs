@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-using MovieTest.Data.Repositories;
+using MovieTest.Common.Interfaces.Handlers;
+using MovieTest.Common.Interfaces.Repositories;
 
 namespace MovieTest.Domain.Handlers
 {
-    public interface IRemoveMovieHandler : IHandleApiRequestAsync<Guid, bool>
-    {
-    }
-
     public class RemoveMovieHandler : IRemoveMovieHandler
     {
         private readonly IMoviesrepository repository;
@@ -23,6 +20,7 @@ namespace MovieTest.Domain.Handlers
             try
             {
                 await this.repository.Delete(request);
+                await this.repository.SaveAsync();
                 return true;
             }
             catch (Exception ex)

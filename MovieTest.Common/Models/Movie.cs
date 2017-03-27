@@ -1,12 +1,11 @@
-﻿using FluentValidation.Attributes;
+﻿using System;
 
-using MovieTest.Domain.Validators;
-
-namespace MovieTest.Domain.DTO
+namespace MovieTest.Common.Models
 {
-    [Validator(typeof(AddMovieRequestValidator))] 
-    public class AddMovieRequest
+    public class Movie
     {
+        public Guid Id { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }

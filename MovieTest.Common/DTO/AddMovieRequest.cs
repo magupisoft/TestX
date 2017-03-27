@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace MovieTest.Domain.DTO
+﻿namespace MovieTest.Common.DTO
 {
-    public class MovieDetailResponse
+    public class AddMovieRequest
     {
-        public Guid Id { get; set; }
-
         public string Title { get; set; }
+
+        public string Description { get; set; }
 
         public string Classification { get; set; }
 

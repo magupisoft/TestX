@@ -4,22 +4,23 @@ using Castle.Windsor;
 
 using FluentValidation;
 
-namespace MovieTest.Domain.Validators
+namespace MovieTest.API.Validators
 {
-    [Obsolete("Not used")]
     public class WindsorValidatorFactory : ValidatorFactoryBase
     {
-        private readonly IWindsorContainer _container;
+        private readonly IWindsorContainer container;
 
         public WindsorValidatorFactory(IWindsorContainer container)
         {
-            _container = container;
+            this.container = container;
         }
 
         public override IValidator CreateInstance(Type validatorType)
         {
-            if (_container.Kernel.HasComponent(validatorType))
-                return _container.Resolve(validatorType) as IValidator;
+            if (this.container.Kernel.HasComponent(validatorType))
+            {
+                return this.container.Resolve(validatorType) as IValidator;
+            }
             return null;
         }
     }

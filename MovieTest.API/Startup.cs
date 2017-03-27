@@ -1,10 +1,18 @@
-﻿using System.Web.Http;
+﻿using System.Configuration;
+using System.Web.Http;
 using System.Web.Http.Dispatcher;
+
 using Castle.Windsor;
+
+using FluentValidation.WebApi;
+
 using Microsoft.Owin;
 using MovieTest.API.DI;
 using MovieTest.Domain;
+
 using Owin;
+
+using WindsorValidatorFactory = MovieTest.API.Validators.WindsorValidatorFactory;
 
 [assembly: OwinStartup(typeof(MovieTest.API.Startup))]
 
@@ -23,15 +31,20 @@ namespace MovieTest.API
 
         public void Configuration(IAppBuilder appBuilder)
         {
-            HttpConfiguration httpConfiguration = new HttpConfiguration();
+            var httpConfiguration = new HttpConfiguration();
 
             // Replace IHttpControllerActivator by Custom Windsor IHttpControllerActivator type so it can resolve and inject dependencies
             httpConfiguration.Services.Replace(typeof(IHttpControllerActivator), new WindsorCompositionRoot(this.container));
 
             WebApiConfig.Register(httpConfiguration);
+
             appBuilder.UseWebApi(httpConfiguration);
 
-            MapperConfiguration.Initialize();
+            // Configure Fluent Validation
+            FluentValidationModelValidatorProvider.Configure(httpConfiguration, provider => provider.ValidatorFactory = new WindsorValidatorFactory(this.container));
+
+            var connectionString = ConfigurationManager.ConnectionStrings["MoviesDB"].ConnectionString;
+            DomainInitializer.Initialize(connectionString);
         }
     }
 }

@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 
-using MovieTest.Domain.DTO;
-using MovieTest.Domain.Handlers;
+using MovieTest.Common.DTO;
+using MovieTest.Common.Interfaces.Handlers;
 
 namespace MovieTest.API.Controllers
 {
@@ -39,9 +39,10 @@ namespace MovieTest.API.Controllers
         }
 
         // GET api/<controller>/5
-        public async Task<IHttpActionResult> Get(Guid id)
+        [Route("find/{id:guid}"), HttpGet]
+        public async Task<IHttpActionResult> Get(Guid? id)
         {
-            var response = await this.getMovieHandler.GetResponseAsync(id);
+            var response = await this.getMovieHandler.GetResponseAsync(id.Value);
             if (response != null)
             {
                 return this.Ok(response);
@@ -50,8 +51,8 @@ namespace MovieTest.API.Controllers
             return this.NotFound();
         }
 
-        // POST api/<controller>
-        [Route("add"), HttpPut]
+        // Post api/<controller>/add
+        [Route("add"), HttpPost]
         public async Task<IHttpActionResult> Post([FromBody]AddMovieRequest value)
         {
             var response = await this.addMovieHandler.GetResponseAsync(value);
@@ -63,7 +64,7 @@ namespace MovieTest.API.Controllers
             return this.BadRequest();
         }
 
-        // PUT api/<controller>/5
+        // PUT api/<controller>/update
         [Route("update"), HttpPut]
         public async Task<IHttpActionResult> Put([FromBody]UpdateMovieRequest value)
         {
@@ -76,8 +77,8 @@ namespace MovieTest.API.Controllers
             return this.BadRequest();
         }
 
-        // DELETE api/<controller>/5
-        [Route("remove"), HttpDelete]
+        // DELETE api/<controller>/remove/{id:guid}
+        [Route("remove/{id:guid}"), HttpDelete]
         public async Task<IHttpActionResult> Delete(Guid id)
         {
             var response = await this.removeMovieHandler.GetResponseAsync(id);
@@ -87,6 +88,12 @@ namespace MovieTest.API.Controllers
             }
 
             return this.BadRequest();
+        }
+
+        [Route("hello"), HttpGet]
+        public string Hello()
+        {
+            return "Testing Api Controller";
         }
     }
 }

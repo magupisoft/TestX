@@ -11,7 +11,10 @@ namespace MovieTest.API.Filters
         {
             if (!actionContext.ModelState.IsValid)
             {
-                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState);
+                //actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState);
+                actionContext.Response = actionContext.Request.CreateResponse(
+                    HttpStatusCode.BadRequest,
+                    new ApiResourceValidationErrorWrapper(actionContext.ModelState));
             }
         }
     }

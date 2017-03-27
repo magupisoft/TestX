@@ -1,42 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 using AutoMapper;
 
-using MovieTest.Data.Models;
-using MovieTest.Data.Repositories;
-using MovieTest.Domain.DTO;
+using MovieTest.Common.DTO;
+using MovieTest.Common.Interfaces.Handlers;
+using MovieTest.Common.Interfaces.Repositories;
+using MovieTest.Common.Models;
 
 namespace MovieTest.Domain.Handlers
 {
-    public interface IGetMovieListHandler : IHandleApiRequestAsync<IEnumerable<MovieDetailResponse>>
-    {
-    }
-
-    public class GetMovieListHandler : IGetMovieListHandler
+    public class GetMovieListHandler : BaseHandler, IGetMovieListHandler
     {
          private readonly IMoviesrepository repository;
 
-         public GetMovieListHandler(IMoviesrepository repository)
-        {
+         public GetMovieListHandler(IMoviesrepository repository, IMapper mapper)
+             : base(mapper)
+         {
             this.repository = repository;
         }
 
          public async Task<IEnumerable<MovieDetailResponse>> GetResponseAsync()
         {
             IEnumerable<Movie> movies = null;
-            try
-            {
-                movies = await this.repository.GetMovies();
-            }
-            catch (Exception ex)
-            {
-                // ToDo: Log Exception
-            }
+             try
+             {
+                 movies = await this.repository.GetMovies();
+             }
+             catch (Exception ex)
+             {
+                 // ToDo: Log Exception
+             }
 
-            var moviesDetails = Mapper.Map<IEnumerable<Movie>, IEnumerable<MovieDetailResponse>>(movies);
+            var moviesDetails = this.mapper.Map<IEnumerable<Movie>, IEnumerable<MovieDetailResponse>>(movies);
             return moviesDetails;
         }
     }
