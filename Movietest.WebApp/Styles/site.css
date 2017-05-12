@@ -1,0 +1,20 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.btn-add {
+    margin: 40px 0 20px 0;
+    display: inline-block;
+}
+
+.links>a {
+    margin: 0 10px;
+    display: inline-block;
+}

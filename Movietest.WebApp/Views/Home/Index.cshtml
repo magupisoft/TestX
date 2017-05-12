@@ -4,10 +4,19 @@
     ViewBag.Title = "Movies Home";
 }
 
-<div ng-controller="movieController">
-
-    <input type="text" ng-model="helloAngular" />
-    <h1>{{helloAngular}}</h1>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+<div ng-controller="movieController as movie">
+    <br/>
+    <br/>
+    <br />
+    <div class="clearfix"></div>
+    <div>
+        <h2>{{ vm.movies }}</h2>
+    </div>
 </div>
+@section scripts{
+    <script src="~/Scripts/App/app.js"></script>
+    <script src="~/Scripts/App/Services/logger.service.js"></script>
+    <script src="~/Scripts/App/Common/$config.js"></script>
+    <script src="~/Scripts/App/Controllers/testx.controller.js"></script>
+    <script src="~/Scripts/App/Services/testx.service.js"></script>
+}

@@ -1,5 +1,5 @@
 ﻿using System.Web.Http;
-
+using System.Web.Http.Cors;
 using MovieTest.API.Filters;
 
 using Newtonsoft.Json;
@@ -12,6 +12,9 @@ namespace MovieTest.API
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            // Allow CORS for all origins. (Caution!, just for testing purposes)
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
