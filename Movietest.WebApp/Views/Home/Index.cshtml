@@ -4,15 +4,43 @@
     ViewBag.Title = "Movies Home";
 }
 
-<div ng-controller="movieController as movie">
-    <br/>
-    <br/>
-    <br />
+<div ng-controller="MovieController as moviesVm" class="row">
     <div class="clearfix"></div>
-    <div>
-        <h2>{{ vm.movies }}</h2>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-offset-11">
+                <button type="button" ng-click="addNewMovie()" class="btn btn-primary btn-add pull-right">
+                    <span>Add New Movie</span>
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <table class="table table-striped">
+                <tr>
+                    <th>id</th>
+                    <th>Title</th>
+                    <th>Classification</th>
+                    <th>Duration</th>
+                    <th>Genres</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="movie in moviesVm.movies">
+                    <td>{{ movie.id }}</td>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.classification }}</td>
+                    <td>{{ movie.duration }}</td>
+                    <td>{{ movie.genres }}</td>
+                    <td><button type="button" class="btn btn-link" ng-click="editMovie(movie)">Edit</button></td>
+                    <td><button type="button" class="btn btn-link" ng-click="deleteMovie(movie)">Delete</button></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
+
 @section scripts{
     <script src="~/Scripts/App/app.js"></script>
     <script src="~/Scripts/App/Services/logger.service.js"></script>

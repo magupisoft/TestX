@@ -1,28 +1,32 @@
 ﻿(function () {
     'use strict';
-    angular.module("testX").controller('movieController', movieController);
+    angular.module("testX").controller('MovieController', MovieController);
 
-    movieController.$inject = ['movieService', 'logger'];
+    MovieController.$inject = ['movieService', 'logger'];
 
-    function movieController(movieService, logger) {
-        var vm = this;
-        vm.movies = [];
+    function MovieController(movieService, logger) {
+        var moviesVm = this;
+        moviesVm.movies = [];
 
         activate();
 
         function activate() {
             return getAllMovies().then(function () {
                 logger.info('Activated Movies View');
-                console.log(vm.movies);
+                console.log(moviesVm.movies);
             });
         }
 
         function getAllMovies() {
             return movieService.all().then(function (data) {
-                vm.movies = data;
-                return vm.movies;
+                moviesVm.movies = data;
+                return moviesVm.movies;
             });
         }
+
+        moviesVm.addNewMovie = function() {
+            console.log("Add new movie");
+        };
 
         activate();
     }
