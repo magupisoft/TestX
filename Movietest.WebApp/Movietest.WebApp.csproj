@@ -88,7 +88,10 @@
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\Common\%24config.js" />
     <Content Include="Scripts\App\Controllers\testx.controller.js" />
+    <Content Include="Scripts\App\Partials\_SaveMovie.html" />
     <Content Include="Scripts\App\Services\testx.service.js" />
+    <Content Include="Scripts\App\ui-bootstrap-custom-2.5.0.js" />
+    <Content Include="Scripts\App\ui-bootstrap-custom-tpls-2.5.0.js" />
     <Content Include="Styles\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -106,6 +109,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\App\Controllers\saveMovie.controller.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

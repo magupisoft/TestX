@@ -9,7 +9,7 @@
     <div class="col-md-10">
         <div class="row">
             <div class="col-md-offset-11">
-                <button type="button" ng-click="addNewMovie()" class="btn btn-primary btn-add pull-right">
+                <button type="button" ng-click="moviesVm.addNewMovie()" class="btn btn-primary btn-add pull-right">
                     <span>Add New Movie</span>
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
@@ -27,14 +27,14 @@
                     <th></th>
                     <th></th>
                 </tr>
-                <tr ng-repeat="movie in moviesVm.movies">
+                <tr ng-repeat="movie in moviesVm.movies track by movie.id">
                     <td>{{ movie.id }}</td>
                     <td>{{ movie.title }}</td>
                     <td>{{ movie.classification }}</td>
                     <td>{{ movie.duration }}</td>
                     <td>{{ movie.genres }}</td>
-                    <td><button type="button" class="btn btn-link" ng-click="editMovie(movie)">Edit</button></td>
-                    <td><button type="button" class="btn btn-link" ng-click="deleteMovie(movie)">Delete</button></td>
+                    <td><button type="button" class="btn btn-link" ng-click="moviesVm.editMovie(movie)">Edit</button></td>
+                    <td><button type="button" class="btn btn-link" ng-click="moviesVm.deleteMovie(movie)">Delete</button></td>
                 </tr>
             </table>
         </div>
@@ -42,9 +42,12 @@
 </div>
 
 @section scripts{
+    <script src="~/Scripts/App/ui-bootstrap-custom-2.5.0.js"></script>
+    <script src="~/Scripts/App/ui-bootstrap-custom-tpls-2.5.0.js"></script>
     <script src="~/Scripts/App/app.js"></script>
     <script src="~/Scripts/App/Services/logger.service.js"></script>
     <script src="~/Scripts/App/Common/$config.js"></script>
     <script src="~/Scripts/App/Controllers/testx.controller.js"></script>
+    <script src="~/Scripts/App/Controllers/saveMovie.controller.js"></script>
     <script src="~/Scripts/App/Services/testx.service.js"></script>
 }

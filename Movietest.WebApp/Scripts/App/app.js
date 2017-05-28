@@ -1,4 +1,4 @@
 ﻿(function() {
     "use strict";
-    angular.module("testX", []);
+    angular.module("testX", ['ui.bootstrap']);
 })();
