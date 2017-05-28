@@ -8,7 +8,7 @@
         var moviesVm = this;
         moviesVm.movies = [];
        
-        function FillTable() {
+        function fillTable() {
             return getAllMovies().then(function () {
                 logger.info('Activated Movies View');
                 console.log(moviesVm.movies);
@@ -32,7 +32,7 @@
 
             modalInstance.result.then(function() {
                 alert("Movie was added successfully");
-                FillTable();
+                fillTable();
             }, function() {
                 logger.info("Modal dismissed");
             });
@@ -53,16 +53,25 @@
 
             modalInstance.result.then(function () {
                 alert("Movie was edited successfully");
-                FillTable();
+                fillTable();
             }, function () {
                 logger.info("Modal dismissed");
             });
         };
 
         moviesVm.deleteMovie = function(movie) {
-            console.log("delete movie");
+            if (confirm("Are you sure to delete this movie?")) {
+                movieService.remove(movie.id).then(
+                    function (p) {
+                        fillTable();
+                    },
+                    function(error) {
+                        logger.error(error);
+                    }
+                );
+            }
         };
 
-        FillTable();
+        fillTable();
     }
 })();

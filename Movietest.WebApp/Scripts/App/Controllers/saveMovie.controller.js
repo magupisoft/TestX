@@ -10,7 +10,23 @@
 		console.log(saveMovieVm.product);
 
 		saveMovieVm.saveMovie = function () {
-			console.log("save movie");
+			if (saveMovieVm.product.id === null) {
+			    movieService.add(saveMovieVm.product).then(
+                    function(p) {
+                        $uibModalInstance.close(p);
+                    },
+			        function(e) {
+			            logger.error(e);
+			        });
+			} else {
+			  movieService.update(saveMovieVm.product).then(
+              function (p) {
+                  $uibModalInstance.close(p);
+              },
+              function (e) {
+                  logger.error(e);
+              });
+			}
 		};
 
 		saveMovieVm.cancelSaveMovie = function () {
