@@ -11,7 +11,6 @@
         function fillTable() {
             return getAllMovies().then(function () {
                 logger.info('Activated Movies View');
-                console.log(moviesVm.movies);
             });
         }
 
@@ -27,7 +26,12 @@
                 controller: "SaveMovieController",
                 controllerAs: "saveMovieVm",
                 templateUrl: "/Scripts/App/Partials/_SaveMovie.html",
-                backdrop: 'static'
+                backdrop: 'static',
+                resolve: {
+                    movie: function () {
+                        return {id:null};
+                    }
+                }
             });
 
             modalInstance.result.then(function() {
@@ -43,9 +47,9 @@
                 controller: "SaveMovieController",
                 controllerAs: "saveMovieVm",
                 templateUrl: "/Scripts/App/Partials/_SaveMovie.html",
-                backdrop: 'static',
+                backdrop: "static",
                 resolve: {
-                    movie: function() {
+                    movie: function () {
                         return movieEdit;
                     }
                 }

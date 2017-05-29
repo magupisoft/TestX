@@ -1,12 +1,34 @@
 ﻿<div class="modal-content">
-    <div class="modal-header">
-        <h4 class="modal-title">Movie</h4>
-    </div>
-    <div class="modal-body">
-        <form name="frmMovie" id="frmMovie" ng-submit="saveMovieVm.saveMovie()"></form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-ng-click="saveMovieVm.cancelSaveMovie()">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save</button>
-    </div>
+    <form name="frmMovie" id="frmMovie" data-ng-submit="saveMovieVm.saveMovie()">
+        <div class="modal-header">
+            <h4 class="modal-title">Movie</h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title" data-ng-model="saveMovieVm.movie.title" required maxlength="50" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" placeholder="Description" data-ng-model="saveMovieVm.movie.description" required maxlength="100"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="classification">Classification</label>
+                <input type="text" class="form-control" id="classification" placeholder="Classification" data-ng-model="saveMovieVm.movie.classification" required maxlength="5" />
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="text" class="form-control" id="duration" placeholder="Duration" data-ng-model="saveMovieVm.movie.duration" required maxlength="10" />
+            </div>
+            <div class="form-group">
+                <label for="genres">Genres</label>
+                <input type="text" class="form-control" id="genres" placeholder="Genres" data-ng-model="saveMovieVm.movie.genres" required maxlength="50" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-ng-click="saveMovieVm.cancelSaveMovie()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
 </div>

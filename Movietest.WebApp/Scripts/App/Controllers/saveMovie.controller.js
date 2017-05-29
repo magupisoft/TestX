@@ -2,16 +2,15 @@
 	'use strict';
 	angular.module("testX").controller('SaveMovieController', SaveMovieController);
 
-	SaveMovieController.$inject = ['movieService', 'logger', '$uibModalInstance'];
+	SaveMovieController.$inject = ['movieService', 'logger', '$uibModalInstance', 'movie'];
 
-	function SaveMovieController(movieService, logger, $uibModalInstance, product) {
+	function SaveMovieController(movieService, logger, $uibModalInstance, movie) {
 		var saveMovieVm = this;
-		saveMovieVm.product = product;
-		console.log(saveMovieVm.product);
+		saveMovieVm.movie = movie;
 
-		saveMovieVm.saveMovie = function () {
-			if (saveMovieVm.product.id === null) {
-			    movieService.add(saveMovieVm.product).then(
+	    saveMovieVm.saveMovie = function () {
+		    if (saveMovieVm.movie.id === null) {
+		        movieService.add(saveMovieVm.movie).then(
                     function(p) {
                         $uibModalInstance.close(p);
                     },
@@ -19,7 +18,7 @@
 			            logger.error(e);
 			        });
 			} else {
-			  movieService.update(saveMovieVm.product).then(
+		        movieService.update(saveMovieVm.movie).then(
               function (p) {
                   $uibModalInstance.close(p);
               },
